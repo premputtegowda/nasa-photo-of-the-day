@@ -12,8 +12,6 @@ function ApodCard(props){
          <img src={props.picdata.url} alt={props.picdata.title}/>  
     )
 
-            
-    
 }
 
 export default ApodCard;
