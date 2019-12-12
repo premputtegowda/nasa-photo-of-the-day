@@ -3,21 +3,14 @@ import axios from "axios";
 import ApodCard from "./ApodCard";
 
 
-function ApodData(){
+function ApodData(props){
+    const date = props.date;
+    
     const [picdata, setPicdata] = useState();
-   /*  const didUpdate = () => {
-        axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
-        .then( response => {
-            console.log(response.data)
-            setPicdata(response.data);
-        })
-        .catch(error => {
-            console.log("Error returned: ", error)
-        })
-           useEffect(didUpdate,[])
-    } */
+  
     useEffect(()=>{
-        axios.get("https://api.nasa.gov/planetary/apod?api_key=Q3or0wVg2RBdbhBuajOni7g7X5sKmGjV3XGoPcqp")
+        
+        axios.get(`https://api.nasa.gov/planetary/apod?api_key=Q3or0wVg2RBdbhBuajOni7g7X5sKmGjV3XGoPcqp&date=${date}`)
         .then(response => {
             
             setPicdata(response.data)
@@ -26,7 +19,7 @@ function ApodData(){
         .catch(error => {
             console.log(error);
         })
-    },[])
+    },[date])
  
     return (
         <ApodCard picdata = {picdata}/>
