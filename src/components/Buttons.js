@@ -1,4 +1,17 @@
 import React from "react";
+import styled from "styled-components";
+
+const Button = styled.button`
+background-color:#0BB5FF;
+color: white;
+font-size: 1rem;
+margin: 1rem;
+padding: 0.25rem 1rem;
+border: 2px solid palevioletblue;
+broder-radius:3px;
+
+
+`;
 
 
 function Buttons(props) {
@@ -6,14 +19,14 @@ function Buttons(props) {
     const nextDate = props.nextDate;
     const counter = props.counter;
     let button;
-    console.log(counter);
+  
     if (counter > 1) {
-        button = <button onClick = {() => nextDate()}>Next</button>
+        button = <Button onClick = {() => nextDate()}>Next</Button>
     }
     return (
         <div className="btn-container">
             <p>counter: {counter}</p>
-            <button onClick={()=> previousDate()}>Previous</button>
+            <Button onClick={()=> previousDate()}>Previous</Button>
             {button}
          
        

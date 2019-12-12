@@ -1,8 +1,11 @@
 import React, {useState}from "react";
 import "./App.css";
-import Header from "./components/Header";
+
 import ApodData from "./components/ApodData";
-import Buttons from "./components/Buttons";
+
+import styled from "styled-components";
+
+
 
 
 function App() {
@@ -24,21 +27,23 @@ function App() {
 
 function previousDate(){
   setCounter(counter + 1);
-  
+  console.log("previousfn ", counter)
   const newDate = currDate.setDate(currDate.getDate()- counter);
-  
+  console.log("previousfn-newDate ", newDate)
   
   
   setDate(formatDate(newDate));
-  
+  console.log("previousfn-date ", date)
   
 }
 
 function nextDate(){
   if (counter > 0) {
     setCounter(counter - 1);
+
   }
   const newDate = currDate.setDate(currDate.getDate()- counter);
+  console.log(newDate)
   
   
   
@@ -51,10 +56,10 @@ function nextDate(){
   return (
     <div className="App">
 
-      <Header/>
-      <Buttons  counter={counter} previousDate = {previousDate} nextDate = {nextDate} />
-      <p> {date} </p>
-      <ApodData date = {date}/>
+      
+      {/* <Buttons  counter={counter} previousDate = {previousDate} nextDate = {nextDate} /> */}
+     
+      <ApodData date = {date} counter={counter} previousDate = {previousDate} nextDate = {nextDate}/>
      
     </div>
   );
